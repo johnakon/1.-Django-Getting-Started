@@ -1,23 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block title %} Welcome {% endblock %}
+
+ {% load static %} <!--this is to load images on this page -->
+
+{% block content %}
+  
     <h1>Welcome to the Meeting Planner</h1>
     <p>
         This is a demo app for the course <em>Django: Getting Started</em> on <a href="https://www.plurasight.com">Plurasight</a>
     </p>
-    <hr />
-    <!-- <p>
-        {{ message }}
-    </p> -->
 
-    <p>
-        There are currently {{ num_meetings }} meetings in the database.
-    </p>
-</body>
-</html>
+        <img src="{% static 'website/calendar.png' %}" alt="" width="10%">
+
+    <h3>Meetings</h3>
+  
+    <ul>
+        {% for meeting in meetings %}
+          <li>
+              <a href="{% url 'detail' meeting.id %}">{{ meeting.title }}</a>
+          </li>
+        {% endfor %}
+    </ul>
+
+    <!-- rooms link-->
+    <h4>Please see the available rooms</h4>
+    <button>
+        <a href="{% url 'rooms' %}" id="rooms" style="text-decoration:none"><em>Rooms available</em></a>
+    </button>
+
+{% endblock %}

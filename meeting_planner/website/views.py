@@ -13,9 +13,14 @@ from meetings.models import Meeting
 #         {"message": " This data was sent from the view to the template"}
 #     )
 
+# def welcome(request):
+#     return render(request, "website/welcome.html", 
+#         {"num_meetings": Meeting.objects.count()}  # template context
+#     )
+
 def welcome(request):
     return render(request, "website/welcome.html", 
-        {"num_meetings": Meeting.objects.count()}  # template context
+        {"meetings": Meeting.objects.all()}  # list of meetings
     )
 
 def date(request):
