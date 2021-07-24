@@ -25,8 +25,14 @@
 
     <!-- rooms link-->
     <h4>Please see the available rooms</h4>
-    <button>
-        <a href="{% url 'rooms' %}" id="rooms" style="text-decoration:none"><em>Rooms available</em></a>
-    </button>
+    <div id="btns">
+        <button>
+            <a href="{% url 'rooms' %}" id="rooms" style="text-decoration:none"><em>Rooms available</em></a>
+        </button>
+
+        <button>
+            <a href="{% url 'new' %}" id="rooms" style="text-decoration:none"><em>Create new meeting</em></a>
+        </button>
+    </div>
 
 {% endblock %}

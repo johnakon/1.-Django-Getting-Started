@@ -3,3 +3,7 @@ body{
     color: cornflowerblue;
     background-color: floralwhite;
 }
+
+#btns{
+    display: inline;
+}
